@@ -2,9 +2,9 @@
 
 if ($_POST){
 
-  $numeros = htmlentities($_POST['numeros']);
-  $num_end = htmlentities($_POST['num_em']);
-  $tt_jogos = htmlentities($_POST['tt_jogos']);
+  $numeros = $_POST['numeros'];
+  $num_end = $_POST['num_end'];
+  $tt_jogos = $_POST['tt_jogos'];
 
   $jogos = array();
   for ($i = 1; $i <= $tt_jogos; $i++)
@@ -61,15 +61,18 @@ if ($_POST){
       <form method="POST" action="index.php">
         <div class="form-group">
           <label for="numeros">Quantidade de numero por jogo</label>
-          <input type="number" name="numeros" min="1" class="form-control" id="numeros" placeholder="Numeros por jogo" value="<?php echo $numeros; ?>">
+          <input type="number" name="numeros" min="1" class="form-control" id="numeros" placeholder="Números por jogo" value="<?php echo $numeros; ?>">
+          <p class="help-block text-muted">Informe apenas a quantidade de número que deve conter cada jogo.</p>
         </div>
         <div class="form-group">
-          <label for="number">Range de numeros por jogos</label>
+          <label for="number">Range de números por jogos</label>
           <input type="number" name="num_end" class="form-control" id="num_end" placeholder="Range de numeros a serem escolhidos por jogo" value="<?php echo $num_end; ?>">
+          <p class="help-block text-muted">Informe a range de números que devem ser escolhidos em cada jogo.</p>
         </div>
         <div class="form-group">
           <label for="number">Quantidade de jogos</label>
           <input type="number" name="tt_jogos" class="form-control" id="tt_jogos" placeholder="Quantidade de jogos a serem gerados" value="<?php echo $tt_jogos; ?>">
+          <p class="help-block text-muted">Informe a quantidade de jogos que deseja.</p>
         </div>
         <button type="submit" class="btn btn-primary">Gerar jogos</button>
       </form>
